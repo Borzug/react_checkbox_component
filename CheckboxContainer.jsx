@@ -6,29 +6,26 @@ import Checkboxes from './Checkboxes';
 class CheckboxContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            items: [],
-            status: {
-                checked: false,
-                indeterminate: false
-            }
-        }
-        this.check = this.check.bind(this);
-        this.toggle = this.toggle.bind(this);
 
-    }
-    componentDidMount() {
         const checkboxes = this.props.data.map((item, idx) => {
             return {
                 id: idx,
                 checked: false,
                 value: item
             };
-        });        
-        this.setState({
-            items: checkboxes
         });
-    }
+
+        this.state = {
+            items: checkboxes || [],
+            status: {
+                checked: false,
+                indeterminate: false
+            }
+        }
+
+        this.check = this.check.bind(this);
+        this.toggle = this.toggle.bind(this);
+    }    
     toggle() {
         const isAllChecked = this.state.status.checked;
         const newCheckboxes = this.state.items.map(item => {
@@ -67,6 +64,7 @@ class CheckboxContainer extends React.Component {
     }
 
     render() {
+        console.log('render');
         return ( 
             <div>
                 <MainSelector 
