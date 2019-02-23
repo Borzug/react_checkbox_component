@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 
-export default function MainSelector({ toggle, status }) {
+export function MainSelector({ toggle, status }) {
     return (
         <div>
             <input
-                type = "checkbox"
-                name = "main_checkbox"
-                onClick = {toggle}
-                checked = {status.checked}
-                value = "0"
-                ref = {
+                type="checkbox"
+                name="main_checkbox"
+                onClick={toggle}
+                checked={status.checked}
+                value="0"
+                ref={
                     input => {
                         if (input) {
                             input.indeterminate = status.indeterminate;
@@ -17,7 +17,7 @@ export default function MainSelector({ toggle, status }) {
                     }
                 }
             />
-            Select All<br/>
+            Select All<br />
         </div>
     )
 }
